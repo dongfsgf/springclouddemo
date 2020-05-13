@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: zuul-gateway
+
+server:
+  port: 5555
+
+zuul:
+  routes:
+    traditional-url:
+      path: /tr-url/**
+      url: http://localhost:7001/
+    orient-server-url:
+      path: /os-url/**
+      service-id: consumer-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5060/eureka/eureka
